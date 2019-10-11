@@ -8,16 +8,17 @@ Thus, we are able to transform these four numbers around.
 
 \subsection{Integers}
 
-The general solution we shall present below, from Wang (2019), is inspired from the famous four ``4''s  problem, which states that any real number can be created with just four 4s, relying on the use of square roots:
+The general solution we present below is adapted from Wang (2019).
+It is inspired by the famous four ``4''s  problem, which states that any real number can be created with just four 4s, relying on the use of square roots:
 
 \begin{equation}
-    n = -\log_\frac{\sqrt{4}}{4}\left( \log_4 \underbrace{\sqrt{\sqrt{\sqrt{\cdots\sqrt{\sqrt{4}}}}}}_{n} \right)
+    n = -\log_\frac{\sqrt{4}}{4}\left( \log_4 \underbrace{\sqrt{\sqrt{\cdots\sqrt{\sqrt{4}}}}}_{n} \right)
 \end{equation}
 
 where $n=\textrm{number of radicals}$. We can extend this to the general case by recognizing that the only requirement is that the base of the outer logarithm has to be two and the base of the inner logarithm has to be the same as the radicand. We can prove this:
 
 \begin{align*}
-    n &= -\log_2\left(\log_a \sqrt{\sqrt{\sqrt{\sqrt{\sqrt{a}}}}}\right) \\
+    n &= -\log_2\left(\log_a \underbrace{\sqrt{\sqrt{\cdots\sqrt{\sqrt{a}}}}}_{k} \right) \\
     &= -\log_2\left(\log_a \left(a^{0.5^k}\right)\right) \\
     &= -\log_2\left(\frac{1}{2^k}\right) \\
     &= -(-k) \\

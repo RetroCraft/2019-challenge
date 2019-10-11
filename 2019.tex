@@ -1,0 +1,90 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\newcommand*{\permcomb}[4][0mu]{{{}^{#3}\mkern#1#2_{#4}}}
+\newcommand*{\perm}[1][-3mu]{\permcomb[#1]{P}}
+\newcommand*{\comb}[1][-1mu]{\permcomb[#1]{C}}
+
+\title{2019 Challenge}
+\author{James Ah Yong, QiLin Xue}
+\date\today
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+The problem, as presented by Dwarka (2019) is as follows:
+
+\begin{quotation}
+  Consider the digits 2, 0, 1, and 9.
+  Using each digit only once, create a formula which generates all positive integers from 1 to 100.
+  Any mathematical operator is allowed, including concatenation of digits.
+\end{quotation}
+
+In this paper, we solve this problem with elementary operations and also provide a general solution using more advanced and esoteric mathematical operators.
+For our purposes, an ``elementary'' operator is one of the basic infix operations: addition ($+$), subtraction ($-$), multiplication ($\times$), and division ($\div$). Concatenation of digits (i.e.\ using 2 and 0 to form 20) and exponentiation (including radicals) are also allowed.
+
+The ``advanced'' operations are those which would be familiar to high-school level math. This includes: logarithms, basic and inverse trigonometric functions, and the probability functions ($\binom{n}{r}$ or $\comb{n}{r}$, and $\perm{n}{r}$).
+
+Finally, the ``esoteric'' level is all other operations that might aid in reducing the number of operations to find shortest solutions. This contains functions like the floor function ($\floor{x}$) or the cis function ($\mathrm{cis}(x) = \cos(x) + i \sin(x)$).
+
+\section{Specific Solutions}
+
+The following are the shortest solutions we could find, measuring length by the number of operators.
+
+\section{General Formulae}
+
+All the general formulae below make use of ``esoteric'' level mathematical operations and functions.
+
+\subsection{Modifying The Original Numbers}
+
+An important part of our discussion is the ability for $2$, $0$, $1$, and $9$, to be modified to become other numbers. Thus, from now on we will pretend our four numbers can be anything from $1$ to $4$, inclusive. For example, $0! = 1$, $\ceil{\arcsin(1)}=2$, $\floor{\cosh(2)}=3$, and $\ceil{\cosh(2)}=4$.
+
+Thus, we are able to transform these four numbers around.
+
+\subsection{Integers}
+
+The general solution we shall present below, from Wang (2019), is inspired from the famous four ``4''s  problem, which states that any real number can be created with just four 4s, relying on the use of square roots:
+
+\begin{equation}
+    n = -\log_\frac{\sqrt{4}}{4}\left( \log_4 \underbrace{\sqrt{\sqrt{\sqrt{\cdots\sqrt{\sqrt{4}}}}}}_{n} \right)
+\end{equation}
+
+where $n=\textrm{number of radicals}$. We can extend this to the general case by recognizing that the only requirement is that the base of the outer logarithm has to be two and the base of the inner logarithm has to be the same as the radicand. We can prove this:
+
+\begin{align*}
+    n &= -\log_2\left(\log_a \sqrt{\sqrt{\sqrt{\sqrt{\sqrt{a}}}}}\right) \\
+    &= -\log_2\left(\log_a \left(a^{0.5^k}\right)\right) \\
+    &= -\log_2\left(\frac{1}{2^k}\right) \\
+    &= -(-k) \\
+    &= k \\
+\end{align*}
+
+To apply it to the specific $2019$ we can use the fact that $\arccos(0) = \arcsin(1)$ giving us the formula:
+\begin{equation}
+    n = -\log_2\left( \log_{\arccos(0)} \sqrt{\sqrt{\cdots\sqrt{\arcsin(1)}}}\right)
+\end{equation}
+
+We can further simplify this expression by switching into base $e$ and using the complex function:
+\begin{equation}
+    \mathrm{cis}(\theta) = \cos\theta + i\sin\theta = e^{i\theta}
+\end{equation}
+Therefore: $-\mathrm{cis}(-1)=e$. We can use this to write any integer with only two numbers:
+\begin{equation}
+    n = -\log_2\left( \ln \sqrt{\sqrt{\cdots\sqrt{-\mathrm{cis}(-1)}}}\right)
+\end{equation}
+
+\subsection{Rationals}
+Since we can represent any integer with two numbers, we can represent any rational number with two sets of two numbers.
+
+\subsection{Complex}
+
+
+\end{document}

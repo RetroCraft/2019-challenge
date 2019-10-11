@@ -42,11 +42,19 @@ The problem, as presented by Dwarka (2019) is as follows:
 \end{quotation}
 
 In this paper, we solve this problem with elementary operations and also provide a general solution using more advanced and esoteric mathematical operators.
-For our purposes, an ``elementary'' operator is one of the basic infix operations: addition ($+$), subtraction ($-$), multiplication ($\times$), and division ($\div$). Concatenation of digits (i.e.\ using 2 and 0 to form 20) and exponentiation (including radicals) are also allowed.
+For our purposes, an ``elementary'' operator is one of the basic infix operations: addition ($+$), subtraction ($-$), multiplication ($\times$), and division ($\div$).
+Concatenation of digits (i.e.\ using 2 and 0 to form 20) and exponentiation (including radicals) are also allowed.
 
-The ``advanced'' operations are those which would be familiar to high-school level math. This includes: logarithms, basic and inverse trigonometric functions, and the probability functions ($x!$, $\binom{n}{r}$ or $\comb{n}{r}$, and $\perm{n}{r}$).
+The ``advanced'' operations are those which would be familiar to high-school level math.
+This includes: logarithms, basic and inverse trigonometric functions, and the probability functions ($x!$, $\binom{n}{r}$ or $\comb{n}{r}$, and $\perm{n}{r}$).
 
-Finally, the ``esoteric'' level is all other operations that might aid in reducing the number of operations to find shortest solutions. This contains functions like the floor function ($\floor{x}$) or the cis function ($\mathrm{cis}(x) = \cos(x) + i \sin(x)$).
+Finally, the ``esoteric'' level is all other operations that might aid in reducing the number of operations to find shortest solutions.
+This contains functions like the floor function ($\floor{x}$) or the cis function ($\mathrm{cis}(x) = \cos(x) + i \sin(x)$).
+
+Every solution is assigned an operational complexity $l$.
+This value is defined as the number of operations required to reach the solution.
+For example, $\frac{a+b}{c}=(a+b)\div c$ has a complexity of 3.
+Concatenation does not count as an operation, so $20+19$ has a complexity of 1.
 
 \section{Specific Solutions}
 

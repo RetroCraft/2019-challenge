@@ -1,21 +1,18 @@
 All the general formulae below make use of ``esoteric'' level mathematical operations and functions.
 
-\subsection{Modifying The Original Numbers}
-
-An important part of our discussion is the ability for $2$, $0$, $1$, and $9$, to be modified to become other numbers. Thus, from now on we will pretend our four numbers can be anything from $1$ to $4$, inclusive. For example, $0! = 1$, $\ceil{\arcsin(1)}=2$, $\floor{\cosh(2)}=3$, and $\ceil{\cosh(2)}=4$.
-
-Thus, we are able to transform these four numbers around.
-
 \subsection{Integers}
 
-The general solution we present below is adapted from Wang (2019).
-It is inspired by the famous four ``4''s  problem, which states that any real number can be created with just four 4s, relying on the use of square roots:
+The general solution for we present and extend below is adapted from Wang (2019).
+
+It is inspired by the famous four fours problem, which states that any positive whole number can be created with just four 4s, relying on the use of square roots:
 
 \begin{equation}
   n = -\log_\frac{\sqrt{4}}{4}\left( \log_4 \underbrace{\sqrt{\sqrt{\cdots\sqrt{\sqrt{4}}}}}_{n} \right)
 \end{equation}
 
-where $n=\textrm{number of radicals}$. We can extend this to the general case by recognizing that the only requirement is that the base of the outer logarithm has to be two and the base of the inner logarithm has to be the same as the radicand. We can prove this:
+where $n=\textrm{number of radicals}$.
+We can extend this to the general case by recognizing that the only requirement is that the base of the outer logarithm has to be two and the base of the inner logarithm has to be the same as the radicand.
+We can prove this:
 
 \begin{align*}
   n &= -\log_2\left(\log_a \underbrace{\sqrt{\sqrt{\cdots\sqrt{\sqrt{a}}}}}_{k} \right) \\
@@ -25,17 +22,13 @@ where $n=\textrm{number of radicals}$. We can extend this to the general case by
   &= k \\
 \end{align*}
 
-To apply it to the specific $2019$ we can use the fact that $\arccos(0) = \arcsin(1)$ giving us the formula:
-\begin{equation}
-  n = -\log_2\left( \log_{\arccos(0)} \sqrt{\sqrt{\cdots\sqrt{\arcsin(1)}}}\right)
-\end{equation}
-
 We can further simplify this expression by switching into base $e$ and using the complex function:
-\begin{equation}
+\begin{equation*}
   \mathrm{cis}(\theta) = \cos\theta + i\sin\theta = e^{i\theta}
-\end{equation}
+\end{equation*}
 
-Therefore, $\mathrm{cis}(-i)=\mathrm{cis}(-\sqrt{-1})=e$. We can use this to write any integer with only two numbers:
+Therefore, $\mathrm{cis}(-i)=e$.
+We can use this to write any integer with only two numbers:
 \begin{equation}
   n = -\log_2\left( \ln \sqrt{\sqrt{\cdots\sqrt{\mathrm{cis}(\sqrt{-1})}}}\right)
 \end{equation}
@@ -49,11 +42,11 @@ To enforce the use of all four digits, simply add a $+0^9$ term to the end.
   n = -\log_2\left( \ln \sqrt{\sqrt{\cdots\sqrt{\mathrm{cis}(\sqrt{-1})}}}\right)+0^9
 \end{equation}
 
-The operational complexity (see definition above) for this formula is $l=n+8$ for $n>0$ and $l=n+7$ for $n\leq0$.
+The operational complexity for this formula is $l=n+8$ for $n>0$ and $l=n+7$ for $n\leq0$.
 
 \subsection{Rationals}
 Since we can represent any integer with two numbers, we can represent any rational number with two sets of two numbers.
-For any rational number $n=\frac{a}{b}$:
+For any $n=\frac{a}{b}$, where $n\in\mathbb{Q}$:
 \begin{align*}
   n &= \frac{
     \log_2\left(

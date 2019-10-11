@@ -12,34 +12,76 @@ The general solution we present below is adapted from Wang (2019).
 It is inspired by the famous four ``4''s  problem, which states that any real number can be created with just four 4s, relying on the use of square roots:
 
 \begin{equation}
-    n = -\log_\frac{\sqrt{4}}{4}\left( \log_4 \underbrace{\sqrt{\sqrt{\cdots\sqrt{\sqrt{4}}}}}_{n} \right)
+  n = -\log_\frac{\sqrt{4}}{4}\left( \log_4 \underbrace{\sqrt{\sqrt{\cdots\sqrt{\sqrt{4}}}}}_{n} \right)
 \end{equation}
 
 where $n=\textrm{number of radicals}$. We can extend this to the general case by recognizing that the only requirement is that the base of the outer logarithm has to be two and the base of the inner logarithm has to be the same as the radicand. We can prove this:
 
 \begin{align*}
-    n &= -\log_2\left(\log_a \underbrace{\sqrt{\sqrt{\cdots\sqrt{\sqrt{a}}}}}_{k} \right) \\
-    &= -\log_2\left(\log_a \left(a^{0.5^k}\right)\right) \\
-    &= -\log_2\left(\frac{1}{2^k}\right) \\
-    &= -(-k) \\
-    &= k \\
+  n &= -\log_2\left(\log_a \underbrace{\sqrt{\sqrt{\cdots\sqrt{\sqrt{a}}}}}_{k} \right) \\
+  &= -\log_2\left(\log_a \left(a^{0.5^k}\right)\right) \\
+  &= -\log_2\left(\frac{1}{2^k}\right) \\
+  &= -(-k) \\
+  &= k \\
 \end{align*}
 
 To apply it to the specific $2019$ we can use the fact that $\arccos(0) = \arcsin(1)$ giving us the formula:
 \begin{equation}
-    n = -\log_2\left( \log_{\arccos(0)} \sqrt{\sqrt{\cdots\sqrt{\arcsin(1)}}}\right)
+  n = -\log_2\left( \log_{\arccos(0)} \sqrt{\sqrt{\cdots\sqrt{\arcsin(1)}}}\right)
 \end{equation}
 
 We can further simplify this expression by switching into base $e$ and using the complex function:
 \begin{equation}
-    \mathrm{cis}(\theta) = \cos\theta + i\sin\theta = e^{i\theta}
+  \mathrm{cis}(\theta) = \cos\theta + i\sin\theta = e^{i\theta}
 \end{equation}
-Therefore: $-\mathrm{cis}(-1)=e$. We can use this to write any integer with only two numbers:
+
+Therefore, $\mathrm{cis}(-i)=\mathrm{cis}(-\sqrt{-1})=e$. We can use this to write any integer with only two numbers:
 \begin{equation}
-    n = -\log_2\left( \ln \sqrt{\sqrt{\cdots\sqrt{-\mathrm{cis}(-1)}}}\right)
+  n = -\log_2\left( \ln \sqrt{\sqrt{\cdots\sqrt{\mathrm{cis}(\sqrt{-1})}}}\right)
 \end{equation}
+
+This formula holds for all positive integers $n\in\mathbb{Z}^+$.
+Zero can be created with no square roots.
+By removing the leading negative, we can create all integers $n\in\mathbb{Z}$.
+To enforce the use of all four digits, simply add a $+0^9$ term to the end.
+
+\begin{equation}
+  n = -\log_2\left( \ln \sqrt{\sqrt{\cdots\sqrt{\mathrm{cis}(\sqrt{-1})}}}\right)+0^9
+\end{equation}
+
+The operational complexity (see definition above) for this formula is $l=n+8$ for $n>0$ and $l=n+7$ for $n\leq0$.
 
 \subsection{Rationals}
 Since we can represent any integer with two numbers, we can represent any rational number with two sets of two numbers.
+For any rational number $n=\frac{a}{b}$:
+\begin{align*}
+  n &= \frac{
+    \log_2\left(
+      \ln \underbrace{\sqrt{\cdots\sqrt{\mathrm{cis}(\sqrt{-1})}}}_{a} 
+    \right)
+  }{
+    \log_2\left(
+      \ln \underbrace{\sqrt{\cdots\sqrt{\mathrm{cis}(\sqrt{-1})}}}_{b} 
+    \right)
+  } \\
+  &= \log_{
+    \ln \underbrace{\sqrt{\cdots\sqrt{\mathrm{cis}(\sqrt{-1})}}}_{b}
+  }
+  \left(
+    \ln \underbrace{\sqrt{\cdots\sqrt{\mathrm{cis}(\sqrt{-1})}}}_{a}
+  \right)
+\end{align*}
+
+Once again, applying to 2019:
+\begin{equation}
+  n = \log_{
+    \ln\sqrt{\cdots\sqrt{\mathrm{cis}(\sqrt{-2^0})}}
+  }
+  \left(
+    \ln\sqrt{\cdots\sqrt{\mathrm{cis}(\sqrt{-1^9})}}
+  \right)
+\end{equation}
+
+Following the same logic as for integers, a negative sign can be prepended for negative rationals. The operational complexity is $l=11+a+b$ for $n\geq0$ and $l=12+a+b$ for $n<0$.
 
 \subsection{Complex}

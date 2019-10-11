@@ -1,14 +1,25 @@
 \documentclass{article}
 
+% Format things
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{multicol}
+
+% Math things
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{hyperref}
+% ceil/floor, abs
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+% nPr, nCr
 \newcommand*{\permcomb}[4][0mu]{{{}^{#3}\mkern#1#2_{#4}}}
 \newcommand*{\perm}[1][-3mu]{\permcomb[#1]{P}}
 \newcommand*{\comb}[1][-1mu]{\permcomb[#1]{C}}
+% redefine * as \times
+\DeclareMathSymbol{*}{\mathbin}{symbols}{"02}
 
 \title{2019 Challenge}
 \author{James Ah Yong, QiLin Xue}
@@ -31,7 +42,7 @@ The problem, as presented by Dwarka (2019) is as follows:
 In this paper, we solve this problem with elementary operations and also provide a general solution using more advanced and esoteric mathematical operators.
 For our purposes, an ``elementary'' operator is one of the basic infix operations: addition ($+$), subtraction ($-$), multiplication ($\times$), and division ($\div$). Concatenation of digits (i.e.\ using 2 and 0 to form 20) and exponentiation (including radicals) are also allowed.
 
-The ``advanced'' operations are those which would be familiar to high-school level math. This includes: logarithms, basic and inverse trigonometric functions, and the probability functions ($\binom{n}{r}$ or $\comb{n}{r}$, and $\perm{n}{r}$).
+The ``advanced'' operations are those which would be familiar to high-school level math. This includes: logarithms, basic and inverse trigonometric functions, and the probability functions ($x!$, $\binom{n}{r}$ or $\comb{n}{r}$, and $\perm{n}{r}$).
 
 Finally, the ``esoteric'' level is all other operations that might aid in reducing the number of operations to find shortest solutions. This contains functions like the floor function ($\floor{x}$) or the cis function ($\mathrm{cis}(x) = \cos(x) + i \sin(x)$).
 

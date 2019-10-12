@@ -16,10 +16,6 @@
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 % cis, exp
 \DeclareMathOperator{\cis}{cis}
-% nPr, nCr
-\newcommand*{\permcomb}[4][0mu]{{{}_{#3}\mkern#1#2_{#4}}}
-\newcommand*{\perm}[1][-3mu]{\permcomb[#1]{P}}
-\newcommand*{\comb}[1][-1mu]{\permcomb[#1]{C}}
 % redefine * as \times
 \DeclareMathSymbol{*}{\mathbin}{symbols}{"02}
 
@@ -46,7 +42,7 @@ For our purposes, an ``elementary'' operator is one of the basic infix operation
 Concatenation of digits (i.e.\ using 2 and 0 to form 20) and exponentiation (including radicals) are also allowed.
 
 The ``advanced'' operations are those which would be familiar to high-school level math.
-This includes: logarithms, basic and inverse trigonometric functions, and the probability functions ($x!$, $\binom{n}{r}$ or $\comb{n}{r}$, and $\perm{n}{r}$).
+This includes: logarithms, basic and inverse trigonometric functions, and the probability functions ($x!$, $\binom{n}{r}$ or $_nC_r$, and $_nP_r$).
 
 The ``esoteric'' level is all other operations that might aid in reducing the number of operations to find shortest solutions.
 This contains functions like the gamma function ($\Gamma(x) = (x-1)!$) or the cis function ($\mathrm{cis}(x) = \cos(x) + i \sin(x)$).

@@ -161,7 +161,7 @@ Let $d=\textrm{lcm}(b_1, b_2)$, $k_1=\frac{d}{a_1}$, $k_2=\frac{d}{a_2}$.
 
 Substituting in the digits of 2019:
 \begin{equation}
-  n = \log_{\ln \sqrt{\cdots\sqrt{\exp\ceil{\sin2}}}}
+  n = \log_{\ln \sqrt{\cdots\sqrt{\exp\Gamma(2)}}}
     \left(
       \ln \sqrt{\cdots\sqrt{\exp\sqrt{0!}}}
       \times
@@ -173,5 +173,5 @@ The total number of variadic square roots in this expression is
 \begin{equation*}
   n_{sqrt}=d+k_1+k_2=\textrm{lcm}(b_1,b_2) * \left(1+\frac{1}{a_1}+\frac{1}{a_2}\right),
 \end{equation*}
-making the operational complexity $l=15+n_{sqrt}$.
+making the operational complexity $l=14+n_{sqrt}$.
 Like the last equation, the three other sign combinations can be created with the complex conjugate operator and/or a leading negative.

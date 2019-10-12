@@ -32,9 +32,10 @@ We can prove this:
 
 We can further simplify this expression by switching into base $e$.
 We can use this to write any integer with only two numbers:
-\begin{equation}
-  n = -\log_2\left( \ln \sqrt{\sqrt{\cdots\sqrt{\exp1}}}\right)
-\end{equation}
+\begin{align*}
+  n &= -\log_2\left( \ln \sqrt{\cdots\sqrt{e}}\right) \\
+  &= -\log_2\left( \ln \sqrt{\cdots\sqrt{\exp1}}\right)
+\end{align*}
 
 This formula holds for all positive integers $n\in\mathbb{Z}^+$.
 Zero can be created with no square roots.
@@ -42,7 +43,7 @@ By removing the leading negative, we can create all integers $n\in\mathbb{Z}$.
 To enforce the use of all four digits, simply add a $+0^9$ term to the end.
 
 \begin{equation}
-  n = -\log_2\left( \ln \sqrt{\sqrt{\cdots\sqrt{\exp1}}}\right)+0^9
+  n = -\log_2\left(\ln \sqrt{\cdots\sqrt{\exp1}}\right)+0^9
 \end{equation}
 
 The operational complexity for this formula is $l=n+6$ for $n>0$ and $l=n+5$ for $n\leq0$.
@@ -155,16 +156,10 @@ Let $d=\textrm{lcm}(b_1, b_2)$, $k_1=\frac{d}{a_1}$, $k_2=\frac{d}{a_2}$.
       \ln \underbrace{\sqrt{\cdots\sqrt{\exp1}}}_{k_1}
       \times
       \ln^{i} \underbrace{\sqrt{\cdots\sqrt{\exp1}}}_{k_2}
-    \right) \\
-  &= \log_{\ln \sqrt{\cdots\sqrt{\exp1}}}
-    \left(
-      \ln \sqrt{\cdots\sqrt{\exp1}}
-      \times
-      \ln^{\sqrt{-1}} \sqrt{\cdots\sqrt{\exp1}}
     \right)
 \end{align*}
 
-Substituting in for 2019:
+Substituting in the digits of 2019:
 \begin{equation}
   n = \log_{\ln \sqrt{\cdots\sqrt{\exp\ceil{\sin2}}}}
     \left(
@@ -179,4 +174,4 @@ The total number of variadic square roots in this expression is
   n_{sqrt}=d+k_1+k_2=\textrm{lcm}(b_1,b_2) * \left(1+\frac{1}{a_1}+\frac{1}{a_2}\right),
 \end{equation*}
 making the operational complexity $l=15+n_{sqrt}$.
-Like the last equation, the three other sign combinations can be created with the complex conjugate function and/or a leading negative.
+Like the last equation, the three other sign combinations can be created with the complex conjugate operator and/or a leading negative.
